@@ -1,0 +1,186 @@
+#include "include\defines.hpp"
+#include "include\params.hpp"
+#include "include\functions.hpp"
+#include "music\Music.hpp"
+#include "sounds\Sounds.hpp"
+
+
+// Mission Header
+class Header
+{
+  gameType = Coop; // FIXME
+  minPlayers = 1;
+  maxPlayers = 10;
+};
+
+onLoadName = "Zargabad Spetsnaz";
+onLoadMission = "Rescue a captured Soviet Colonel";
+onLoadIntro = "Kill the Jihadis"
+OnLoadMissionTime = FALSE;
+dev = "Tooth";
+briefingName = "Zargabad Spetsnaz";
+author = "Tooth";
+overviewPicture = "a3\Missions_F_Gamma\data\img\MP_COOP_m03_overview_CA.paa";
+overviewText = "Zargabad Spetsnaz";
+//loadScreen = "loadscreen.paa"; 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+respawn = "BASE"; // aka 0
+respawnButton = 1; // 
+respwnDelay = 3; // 
+respawnOnStart = -1; // don't respawn on start or run script
+reviveMode = 0; // disabled
+reviveUnconsciousStateMode = 0; // basic
+reviveRequiredTrait = 0;
+reviveRequiredItemsFakConsumed = 0;
+reviveMedicSpeedMultiplier = 2;
+reviveDelay = 10;
+reviveForceRespawnDelay = 5;
+reviveBleedOutDelay = 300;
+reviveRequiredItems = 0;
+
+disabledAI = 0;
+
+enableDebugConsole = 1;
+
+corpseManagerMode = 2;
+corpseLimit = 45;
+corpseRemovalMinTime = 180;
+corpseRemovalMaxTime = 1200;
+wreckManagerMode = 2;
+wreckLimit = 10;
+wreckRemovalMinTime = 60;
+wreckRemovalMaxTime = 1800;
+minPlayerDistance = 100;
+
+forceRotorLibSimulation = 0;
+
+taskManagement_markers2D = 0;
+taskManagement_markers3D = 1;
+taskManagement_propagate = 1;
+taskManagement_drawDist = 10000;
+
+
+
+
+class CfgRemoteExec
+{        
+    // List of script functions allowed to be sent from client via remoteExec
+    class Functions
+    {
+        // State of remoteExec: 0-turned off, 1-turned on, taking whitelist into account, 2-turned on, however, ignoring whitelists (default because of backward compatibility)
+        mode = 2;
+        // Ability to send jip messages: 0-disabled, 1-enabled (default)
+        jip = 1;
+    };        
+    // List of script commands allowed to be sent from client via remoteExec
+    class Commands
+    {
+        class moveInAny { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
+	};
+};
+
+class RscTitles {
+    titles[] = {HSC_View}; 
+    class HSC_View {
+            idd = 620000;
+            duration = 15000;
+            name = "Hindsight Cam";
+            onLoad = "uiNamespace setVariable ['ATHSC_View', _this select 0]";
+            onUnload = "uiNamespace setVariable ['ATHSC_View', displayNull]";
+
+           class controlsBackground {
+                class Rsc_MouseArea {
+                    idc = 170001;
+                    style = ST_MULTI;
+                    
+                    type = CT_STATIC;
+                
+                    shadow = 1;
+                    colorShadow[] = {0,0,0,0.5};
+                    font = "PuristaMedium";
+                    SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+                    colorText[] = {1,1,1,1.0};
+                    colorBackground[] = {0,0,0,0};
+                    linespacing = 1;
+                    x = "safezoneX";
+                    y = "safezoneY";
+                    w = "safezoneW";
+                    h = "safezoneH";
+
+                    text = "";
+                    onMouseMoving = "";
+                    onMouseEnter = "";
+                    onMouseExit = "";
+                    onMouseZChanged = "";
+                    onKeyDown = "systemchat str _this;";
+                };
+            };
+            
+            class controls {
+                class Rsc_TargetText {
+                    idc = 170002;
+                    text = "<t color='#ffffff' shadow='2'>You are unconscious!</t>";
+                    type = 13;
+                    style = 2;
+                      
+                    x = "SafeZoneX + (SafeZoneW * 0.3)";
+                    y = "SafeZoneY + (SafezoneH * 0.8)";
+                    w = "(SafeZoneW) * 0.4";
+                    h = "SafezoneH * 0.1";  
+                      
+                      class Attributes {
+                        font = "TahomaB";
+                        color = "#000000";
+                        align = "center";
+                        valign = "middle";
+                        shadow = false;
+                        shadowColor = "#ff0000";
+                        size = "2";
+                    };
+                    shadow = 2;
+                    font = "RobotoCondensedBold";
+                    colorText[] = {1, 1, 1, 1};
+                    Size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.9)";
+                    SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.9)";
+                    colorBackground[] = {0, 0, 0, 0};
+                };
+            class Rsc_HelpText {
+                    idc = -1;
+                    text = "<t color='#cdcdcd' shadow='2'><u>Controls</u><br/>Cycle entities: A or D<br/>1st/3rd Person: NumEnter or V<br/>Rotate: Mouse<br/>Nightvision: N</t>";
+                    type = 13;
+                    style = 0;
+                      
+                    x = "SafeZoneX + (SafeZoneW * 0.02)";
+                    y = "SafeZoneY + (SafezoneH * 0.85)";
+                    w = "(SafeZoneW) * 0.2";
+                    h = "SafezoneH * 0.15";  
+                      
+                    class Attributes {
+                        font = "TahomaB";
+                        color = "#000000";
+                        align = "center";
+                        valign = "middle";
+                        shadow = false;
+                        shadowColor = "#ff0000";
+                        size = "2";
+                    };
+                    shadow = 2;
+                    font = "RobotoCondensedBold";
+                    colorText[] = {1, 1, 1, 1};
+                    Size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.4)";
+                    SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.4)";
+                    colorBackground[] = {0, 0, 0, 0};
+                };
+            };
+    };
+};
+
+
+// AIS Revive Stuff
+//#include "functions\AIS\Effects\BarDlg.hpp"
+#include "AIS\Effects\BarDlg.hpp"
+
+// mag repack
+#include "Scripts\outlw_magRepack\MagRepack_config.hpp"

@@ -1,0 +1,12 @@
+[submodule "functions/civiliansAndTraffic"]
+	path = functions/civiliansAndTraffic
+	url = https://github.com/daveod06/civiliansAndTraffic.git
+[submodule "functions/enemyOccupationSystem"]
+	path = functions/enemyOccupationSystem
+	url = https://github.com/daveod06/enemyOccupationSystem.git
+[submodule "functions/saberCommonScripts"]
+	path = functions/saberCommonScripts
+	url = https://github.com/daveod06/saberCommonScripts.git
+[submodule "functions/aiArtillery"]
+	path = functions/aiArtillery
+	url = https://github.com/daveod06/aiArtillery.git
