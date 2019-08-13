@@ -74,3 +74,9 @@ _arsenalCrateNew allowDamage false; // disallow damage to crate
   _num = _array select 1;
   _arsenalCrateNew addBackpackCargoGlobal  [_pack, _num];
 } forEach Tooth_arr_AirdropCrateBackpacks;
+
+
+_marker = createMarker ["Supply Drop", getPos (_arsenalCrateNew)];
+_marker setMarkerColor "ColorBlack";
+_marker setMarkerType "hd_objective";
+_marker setMarkerText "Supply Drop";
