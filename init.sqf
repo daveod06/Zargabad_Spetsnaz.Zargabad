@@ -37,4 +37,4 @@ call compile preprocessFile "staticData.sqf";
 task0Done = false;
 task1Done = false;
 task2Done = false;
-
+airportClear = false;

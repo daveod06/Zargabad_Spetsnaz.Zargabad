@@ -1,7 +1,7 @@
 class CfgSounds
 {
     //sounds[] = {Soviet_National_Anthem,Back_In_The_USSR,Who_Will_Save_The_World,Afghan_Music,Yugo_Soviet_Pop,Soviet_Thrash_Metal};
-    sounds[] = {Afghan_Music,Soviet_Thrash_Metal};
+    sounds[] = {Afghan_Music,Soviet_Thrash_Metal,Allah_Ackbar};
     /*
 	class Soviet_National_Anthem
 	{
@@ -41,6 +41,12 @@ class CfgSounds
         name = "Soviet_Thrash_Metal";
         sound[] = {"\sounds\Soviet_Thrash_Metal.ogg", 5.0, 1, 150};
         titles[] = {1, ""};
+    };
+    class Allah_Ackbar 
+    {
+        name="Allah_Ackbar";
+        sound[]={"\functions\enemyOccupationSystem\sounds\Allah_Ackbar.ogg",db-0.7,1,50};
+        titles[]={};
     };
 };
 

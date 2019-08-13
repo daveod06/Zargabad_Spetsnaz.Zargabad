@@ -15,7 +15,7 @@ AIS_MEDEVAC_STATIONS		=	[];				// Add one or more objects and a radius to activa
 //__________________________________________________________________________________________________________________________________________________________________
 //	v v v v v v v v v v v v  --- Optional Settings --- v v v v v v v v v v v v 
 
-AIS_DAMAGE_TOLLERANCE_FACTOR = 	0.35; 				// A higher value means more damage tolerance. 1 is Vanilla. 0.8 mean all damage will reduce to 80% of Vanilla.
+AIS_DAMAGE_TOLLERANCE_FACTOR = 	0.20; 				// A higher value means more damage tolerance. 1 is Vanilla. 0.8 mean all damage will reduce to 80% of Vanilla.
 AIS_BLEEDOUT_TIME 			= 	300; 			// Basic life time in seconds until the unit bleed out and die.. The real life time depends on the real damage of the unit. (can be less or more time from the basic value)
 AIS_REVIVETIME 				= 	10;				// Basic revive time in seconds. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
 AIS_STABILIZETIME 			= 	6;				// Basic stabilize time in seconds to stop the bleeding of a unconscious unit. The real revive time depends on the real damage of the unit. (can be less or more time from the basic value)
